@@ -12,9 +12,17 @@ node extreme_startup.js
 
 ## Heroku
 
+### Setup
+
+heroku create
+
 ### Run locally
 
 `heroku local`
+
+### Deploy
+
+git push heroku main
 
 ## References
 
