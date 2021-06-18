@@ -11,7 +11,7 @@ var answer = function(question, req, res) {
     if (question.indexOf('is the largest') !== -1) {
       let numSeparatorIndex = question.lastIndexOf(':');
       if (numSeparatorIndex !== -1) {
-        return largest(question.substring(numSeparatorIndex + 1));
+        return "" + largest(question.substring(numSeparatorIndex + 1));
       } else {
         return "didn't find arguments";
       }
