@@ -8,15 +8,11 @@ function largest(numString) {
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
-    if (question.indexOf('is the largest') !== -1) {
-      let numSeparatorIndex = question.lastIndexOf(':');
-      if (numSeparatorIndex !== -1) {
-        return "" + largest(question.substring(numSeparatorIndex + 1));
-      } else {
-        return "didn't find arguments";
-      }
+    let largestResult = largest(question);
+    if (largestResult !== undefined) {
+      return largestResult;
     }
-    return `didn't recognise question ${question}`;
+    return "Question ${question} not recognised";
 };
 
 var app = express.createServer();
