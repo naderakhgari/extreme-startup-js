@@ -1,11 +1,16 @@
 var express = require("express");
 var  { largest } = require('./solutions/largest');
+var  { plus } = require('./solutions/plus');
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
     let largestResult = largest(question);
     if (largestResult !== undefined) {
       return largestResult;
+    }
+    let plusResult = plus(question);
+    if (plusResult !== undefined) {
+      return plusResult;
     }
     return "Question ${question} not recognised";
 };
