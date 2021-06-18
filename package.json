@@ -3,9 +3,13 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "node extreme_startup.js"
+        "start": "node extreme_startup.js",
+        "test": "jest"
     },
     "dependencies": {
         "express": "2.*"
+    },
+    "devDependencies": {
+        "jest": "27.0.4"
     }
 }

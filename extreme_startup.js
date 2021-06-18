@@ -1,8 +1,22 @@
 var express = require("express");
 
+function largest(numString) {
+  let numbers = numString.split(", ").map(n => parseInt(n));
+  let max = numbers.reduce((mx, item) => Math.max(mx, item));
+  return max;
+}
+
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
-    return "Bodil";
+    if (question.indexOf('is the largest') !== -1) {
+      let numSeparatorIndex = question.lastIndexOf(':');
+      if (numSeparatorIndex !== -1) {
+        return largest(question.substring(numSeparatorIndex + 1));
+      } else {
+        return "didn't find arguments";
+      }
+    }
+    return `didn't recognise question ${question}`;
 };
 
 var app = express.createServer();
