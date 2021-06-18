@@ -1,10 +1,5 @@
 var express = require("express");
-
-function largest(numString) {
-  let numbers = numString.split(", ").map(n => parseInt(n));
-  let max = numbers.reduce((mx, item) => Math.max(mx, item));
-  return max;
-}
+var  { largest } = require('./solutions/largest');
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
