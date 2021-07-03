@@ -15,9 +15,7 @@ function squareAndCube(question) {
     if (numSeparatorIndex !== -1) {
       let numbers = question.substring(numSeparatorIndex+1).split(", ").map(n => parseInt(n));
       let powers = numbers.filter(n => isCube(n) && isSquare(n));
-      if (powers.length > 0) {
-        return "" + powers[0];
-      }
+      return (powers.length > 0) ? "" + powers[0] : "";
     }
   }
   console.log(`Question ${question} didn't match longest`);
