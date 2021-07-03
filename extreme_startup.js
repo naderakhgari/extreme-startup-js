@@ -1,6 +1,7 @@
 var express = require("express");
 var  { largest } = require('./solutions/largest');
 var  { plus } = require('./solutions/plus');
+var  { multiply } = require('./solutions/multiply')
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
