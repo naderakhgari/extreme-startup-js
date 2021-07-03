@@ -4,13 +4,12 @@ var  { plus } = require('./solutions/plus');
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
-    let largestResult = largest(question);
-    if (largestResult !== undefined) {
-      return largestResult;
-    }
-    let plusResult = plus(question);
-    if (plusResult !== undefined) {
-      return plusResult;
+    let funcs = [largest, plus, multiply];
+    for(let func of funcs) {
+      let result = func(quesion);
+      if (result !== undefined) {
+        return result;
+      }
     }
     return "Question ${question} not recognised";
 };
