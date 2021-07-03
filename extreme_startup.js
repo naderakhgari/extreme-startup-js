@@ -7,7 +7,7 @@ var  { multiply } = require('./solutions/multiply')
 var answer = function(question, req, res) {
     let funcs = [largest, plus, multiply];
     for(let func of funcs) {
-      let result = func(quesion);
+      let result = func(question);
       if (result !== undefined) {
         return result;
       }
