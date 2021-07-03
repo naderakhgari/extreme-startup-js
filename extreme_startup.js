@@ -2,17 +2,18 @@ var express = require("express");
 var  { largest } = require('./solutions/largest');
 var  { plus } = require('./solutions/plus');
 var  { multiply } = require('./solutions/multiply')
+var  { squareAndCube } = require('./solutions/square-and-cube')
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
-    let funcs = [largest, plus, multiply];
+    let funcs = [largest, plus, multiply, squareAndCube];
     for(let func of funcs) {
       let result = func(question);
       if (result !== undefined) {
         return result;
       }
     }
-    return "Question ${question} not recognised";
+    return `Question ${question} not recognised`;
 };
 
 var app = express.createServer();
