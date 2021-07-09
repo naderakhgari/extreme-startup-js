@@ -8,7 +8,7 @@ npm install
 
 ## Run
 
-node extreme_startup.js
+npm start
 
 ## Heroku
 

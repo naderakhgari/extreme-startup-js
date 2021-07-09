@@ -1,4 +1,6 @@
 var express = require("express");
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 var  { largest } = require('./solutions/largest');
 var  { plus } = require('./solutions/plus');
 var  { multiply } = require('./solutions/multiply')
@@ -16,9 +18,10 @@ var answer = function(question, req, res) {
     return `Question ${question} not recognised`;
 };
 
-var app = express.createServer();
-app.use(express.cookieParser());
-app.use(express.session({
+var app = express();
+
+app.use(cookieParser());
+app.use(session({
     "secret": "bodilpwnz"
 }));
 
@@ -26,13 +29,15 @@ app.get("/", function(req, res) {
     var q = req.param("q");
     var a = answer(q, req, res);
     console.log("Q: \"" + q + "\" A:\"" + a + "\"");
-    res.end(a);
+    res.send(a);
 });
 
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 }
-app.listen(port, "0.0.0.0");
-console.log(`Server running on http://0.0.0.0:${port}/`);
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}/`);
+});
+
 
